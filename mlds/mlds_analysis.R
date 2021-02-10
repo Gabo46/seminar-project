@@ -2,12 +2,12 @@
 
 # change to your working directory. Change it to wherever you 
 # have your files in your system 
-setwd("/home/guille/git/seminar_image_quality_WiSe20-21/mlds")
+setwd("/home/guille/git/seminar_image_quality_and_vision/experiment_code/mlds_experiments")
 
 # First, you need to install the package. 
 # you only need to do this once, you can comment 
 # this line after done it for the first time.
-install.packages('MLDS')
+#install.packages('MLDS')
 
 
 # load package 
@@ -17,20 +17,36 @@ library(MLDS)
 ## Reading and preparing data
 # read all the CSV files you generated
   
-# example data, with quadruples
-d1 <- read.csv('example_quad_1.csv')
-d2 <- read.csv('example_quad_2.csv')
-d3 <- read.csv('example_quad_3.csv')
+# example data with quadruples
+#  condition RED
+#d1 <- read.csv('design_GA_quadruples_0_results_red.csv')
+#d2 <- read.csv('design_GA_quadruples_1_results_red.csv')
+#d3 <- read.csv('design_GA_quadruples_2_results_red.csv')
 
-# my data, with triads
-#d1 <- read.csv('ga_triads_0.csv')
-#d2 <- read.csv('ga_triads_1.csv')
-#d3 <- read.csv('ga_triads_2.csv')
+
+# condition BLUE 
+#d1 <- read.csv('design_GA_quadruples_0_results_blue.csv')
+#d2 <- read.csv('design_GA_quadruples_1_results_blue.csv')
+#d3 <- read.csv('design_GA_quadruples_2_results_blue.csv')
+
+
+
+# example data with triads
+# condition BLUE 
+#d1 <- read.csv('design_GA_triads_0_results_blue.csv')
+#d2 <- read.csv('design_GA_triads_1_results_blue.csv')
+#d3 <- read.csv('design_GA_triads_1_results_blue.csv')
+
+#  condition RED
+d1 <- read.csv('design_GA_triads_0_results_red.csv')
+d2 <- read.csv('design_GA_triads_1_results_red.csv')
+d3 <- read.csv('design_GA_triads_1_results_red.csv')
 
 
 # puts together. If you have only one file,
 # then don't do this step, 
 d <- rbind(d1, d2, d3) #
+
 # instead you just call  #d <- read.csv('myfile.csv')
 
 # for quadruples, the data should have 5 columns
@@ -43,7 +59,10 @@ d <- rbind(d1, d2, d3) #
 # we also need to know the actual stimulus values (not the indices). 
 # In the case of the example of correlation in scatterplots,
 # the stimulus vector is..
-stim <- c(seq(0, 0.9, 0.1), 0.98)
+
+# I have just copied it from the generate_stim.py  script
+stim <- c(0.0, 0.25, 0.5, 0.75, 0.9, 0.98)
+
 
 
 # make a properly formatted dataframe. It adds an 'attribute' 
@@ -86,7 +105,7 @@ print(scale)
 
 ## we can plot the perceptual scale and save the figure as PDF
 # change the filename to your own name and include which method you used
-pdf('my_scale_quadruples.pdf')
+pdf('scale_one_observer_one_condition.pdf')
 plot(scale, xlab="Correlation coefficient - r", ylab="Perceptual scale")
 dev.off()
 

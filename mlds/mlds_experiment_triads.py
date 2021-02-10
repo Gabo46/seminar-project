@@ -1,38 +1,44 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Runs an MLDS experiment with the method of *quadruples* for perception of correlation
-in scatterplots. This code runs an experiment replicating the example in 
-Knoblauch & Maloney (2012).
+Step 3: Run the experiment
 
-python mlds_experiment_quad_correlation.py
+Runs an MLDS experiment with the method of triads
 
-Design and stimuli are dynamically generated.
+It runs through a design file in csv format, which should contain the filenames of the
+images to be displayed. 
 
-Seminar: Image quality and human visual perception, WiSe 2020/21, TU Berlin
+From the command line pass the name of the design file as the first parameter
+E.g.
 
-@author: G. Aguilar, June 2020, update Dec 2020
+python mlds_experiment_triads.py design_GA_triads_0.csv
+
+It saves the responses from the observer in a results file.
+
+
+
+After running the experiment,
+Continues with --> separate_conditions.py
+
+
+Seminar: Image quality and human visual perception, TU Berlin
+@author: G. Aguilar, June 2020
+v2: it allows unlimited or limited presentation time. Change the global variable     presentation_time
+v3: updates on WiSe 20/21
 
 """
 
 import csv
-import itertools
-import random
-import datetime
-import glob
-import numpy as np
-import matplotlib.pyplot as plt
-import sys, os
-
+import  datetime
+import sys
 import pyglet
 from pyglet import window
 from pyglet import clock
 from pyglet.window import key 
 
-
 instructions = """
-MLDS experiment with the method of quadruples\n
-Press the UP or DOWN arrow
+MLDS experiment with the method of triads\n
+Press the LEFT or the RIGHT arrow
 to indicate which pair is most different\n
 Press ENTER to start
 Press ESC to exit """
@@ -43,47 +49,24 @@ Press ESC to exit """
 presentation_time = None
 
 
-# vector with correlation values
-r = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.98]
-
-
-def shuffle_quadruple(t):
+def read_design_csv(fname):
+    """ Reads a CSV design file and returns it in a dictionary"""
     
-    # randomly chooses if triad is increasing or decreasing
-    if random.randint(0,1)==1:
-        t1 = t[0]
-        t2 = t[1]
-        t3 = t[2]
-        t4 = t[3]
-    else:
-        t1 = t[3]
-        t2 = t[2]
-        t3 = t[1]
-        t4 = t[0]
-        
-    return (t1, t2, t3, t4)
-
-
-def create_design():
-        
-    trials = list(itertools.combinations(r, 4))
-    #trials = list(itertools.combinations(range(len(r)), 3))
-
-    s1 = []
-    s2 = []
-    s3 = []
-    s4 = []
-    for t in trials:
-        t1, t2, t3, t4 = shuffle_quadruple(t)
-        
-        s1.append(t1)
-        s2.append(t2)
-        s3.append(t3)
-        s4.append(t4)
+    design = open(fname)
+    header = design.readline().strip('\n').split(',')
+    #print header
+    data   = design.readlines()
     
-    new_data = {'S1': s1, 'S2': s2, 'S3': s3, 'S4': s4}
-
+    new_data = {}
+    
+    for k in header:
+        new_data[k] = []
+    for l in data:
+        curr_line = l.strip().split(',')
+        for j, k in enumerate(header):
+            new_data[k].append(curr_line[j])
     return new_data
+
 
 ###############################################################################
 class Experiment(window.Window):
@@ -106,22 +89,20 @@ class Experiment(window.Window):
                                   width=int(self.width*0.75), color=(0, 0, 0, 255),
                                   anchor_x='center', anchor_y='center')
         
-               
+       
+        # Design file
+        global designfile
+        self.designfile = designfile
+        
         # Results file - assigning filename
-        global obsname
-        rfls = glob.glob('%s_quads_*.csv' % obsname)
-        
-        if len(rfls)>0:
-            nb = len(rfls)
-        else:
-            nb = 0
-        
-        self.resultsfile = '%s_quads_%d.csv' % (obsname, nb)
+        s = designfile.split('.')
+        s[-1] = '_results.csv'
+        self.resultsfile = ''.join(s)
         
         # opening the results file, writing the header
         self.rf = open(self.resultsfile, 'w')
         self.resultswriter = csv.writer(self.rf)  
-        header = ['resp', 'S1', 'S2', 'S3', 'S4']
+        header = ['resp', 'S1', 'S2', 'S3']
         self.resultswriter.writerow(header)
     
         
@@ -138,8 +119,7 @@ class Experiment(window.Window):
         
     def loaddesign(self):
         """ Loads the design file specifications"""
-        #self.design = read_design_csv(self.designfile)
-        self.design = create_design()
+        self.design = read_design_csv(self.designfile)
         self.totaltrials = len(self.design['S1'])
         
         if self.debug:
@@ -186,20 +166,18 @@ class Experiment(window.Window):
             if self.firstframe:
                 print('trial: %d' % self.currenttrial)
             
-                # create and load images
-                self.create_trial_images()
+                # load images
                 self.load_images()
                 
                 # saves presentation time
                 self.stimstarttime =  datetime.datetime.now()
             
             # draw images on the screen for a limited time
-            if (presentation_time is None) or (self.present_stim):     
+            if (presentation_time is None) or (self.present_stim):
                 self.image1.blit(int(self.width*0.25), int(self.height*0.75))
-                self.image2.blit(int(self.width*0.75), int(self.height*0.75))
-                self.image3.blit(int(self.width*0.25), int(self.height*0.25))
-                self.image4.blit(int(self.width*0.75), int(self.height*0.25))
-                   
+                self.image2.blit(int(self.width*0.5), int(self.height*0.25))
+                self.image3.blit(int(self.width*0.75), int(self.height*0.75))
+                        
             # timing
             self.firstframe = False
             
@@ -230,50 +208,15 @@ class Experiment(window.Window):
              #self.dispatch_event('on_close')  
              
         
-    def create_trial_images(self):
-        
-        r1 = self.design['S1'][self.currenttrial]
-        r2 = self.design['S2'][self.currenttrial]
-        r3 = self.design['S3'][self.currenttrial]
-        r4 = self.design['S4'][self.currenttrial]
-        
-        self.create_image(r1, 's1.png')
-        self.create_image(r2, 's2.png')
-        self.create_image(r3, 's3.png')
-        self.create_image(r4, 's4.png')
-        
-        return 0
-        
-    def create_image(self, r, imgname):
-        
-        mean = [0, 0]
-        cov = [[1, r], [r, 1]]  # diagonal covariance
-        x = np.random.multivariate_normal(mean, cov, 1000)
-        #r, p = pearsonr(x[:,0], x[:,1])
-    
-        plt.figure(figsize=(5,5))
-        plt.plot(x[:,0], x[:,1], 'o')
-        plt.xlim([-5, 5])
-        plt.ylim([-5, 5])
-        plt.axis('off')
-        #plt.title('r = %f' % r)
-        plt.savefig(imgname)
-        plt.close()
-        
-        return 0
-        
-        
-        
     def load_images(self):
         """ Loads images of current trial """
         # load files 
         if self.debug:
             print('loading files')
             
-        self.image1 = pyglet.image.load('s1.png')
-        self.image2 = pyglet.image.load('s2.png')
-        self.image3 = pyglet.image.load('s3.png')
-        self.image4 = pyglet.image.load('s4.png')
+        self.image1 = pyglet.image.load(self.design['S1'][self.currenttrial])
+        self.image2 = pyglet.image.load(self.design['S2'][self.currenttrial])
+        self.image3 = pyglet.image.load(self.design['S3'][self.currenttrial])
         
         # changes anchor to the center of the image
         self.image1.anchor_x = self.image1.width // 2
@@ -285,21 +228,13 @@ class Experiment(window.Window):
         self.image3.anchor_x = self.image3.width // 2
         self.image3.anchor_y = self.image3.height // 2
 
-        self.image4.anchor_x = self.image4.width // 2
-        self.image4.anchor_y = self.image4.height // 2
+        
 
     def savetrial(self, resp, resptime):
         """ Save the response of the current trial to the results file """
         
-        s1 = self.design['S1'][self.currenttrial]
-        s2 = self.design['S2'][self.currenttrial]
-        s3 = self.design['S3'][self.currenttrial]
-        s4 = self.design['S4'][self.currenttrial]
-        
-        row = [resp, r.index(s1)+1, r.index(s2)+1, r.index(s3)+1, r.index(s4)+1]
-        # row to save is the indices in the vector R, plus one as MLDS package
-        # likes indices to start at 1 and not zero.
-        
+        row = [resp, self.design['S1'][self.currenttrial], self.design['S2'][self.currenttrial],
+               self.design['S3'][self.currenttrial]]
         self.resultswriter.writerow(row)
         print('Trial %d saved' % self.currenttrial)
         
@@ -308,17 +243,6 @@ class Experiment(window.Window):
     def on_close(self):
         """ Executed when program finishes """
         
-        # if s1.png, s2.png and s3.png exists, erase.
-        if os.path.exists("s1.png"):
-            os.remove("s1.png")
-        if os.path.exists("s2.png"):
-            os.remove("s2.png")
-        if os.path.exists("s3.png"):
-            os.remove("s3.png")
-        if os.path.exists("s4.png"):
-            os.remove("s4.png")
-  
-    
         self.rf.close() # closing results csv file
         self.close() # closing window
         
@@ -328,15 +252,15 @@ class Experiment(window.Window):
         if symbol == key.ESCAPE:
             self.dispatch_event('on_close')  
 
-        elif symbol == key.UP and self.experimentphase==1:
-            print("Up")
+        elif symbol == key.LEFT and self.experimentphase==1:
+            print("Left")
             deltat = datetime.datetime.now() - self.stimstarttime
             self.savetrial(resp=0, resptime = deltat.total_seconds())
             self.currenttrial += 1
             self.checkcontinue()
             
-        elif symbol == key.DOWN and self.experimentphase==1:
-            print("Down")
+        elif symbol == key.RIGHT and self.experimentphase==1:
+            print("Right")
             deltat = datetime.datetime.now() - self.stimstarttime
             self.savetrial(resp=1, resptime = deltat.total_seconds())
             self.currenttrial += 1
@@ -353,13 +277,18 @@ class Experiment(window.Window):
 
 #####################################################################
 if __name__ == "__main__":
+    
+    
+    if len(sys.argv) > 1:
+        designfile = sys.argv[1]
         
-    # ask for observer name
-    obsname  = input ('Please input the observer name (e.g. demo): ')
+    # it no argument passed, uses default design file    
+    else:
+        designfile = 'design_triads.csv'
 
+    
     # for fullscreen, use fullscreen=True and give your correct screen resolution in width= and height=
-    win = Experiment(caption="MLDS experiment with the method of quadruples", 
+    win = Experiment(caption="MLDS experiment with triads", 
                      vsync=False, height=800, width=1200, fullscreen=False)
     pyglet.app.run()
-
 
