@@ -104,7 +104,7 @@ def create_design_triads(v):
 ##############################################################################
 ###################### Generting Design Files ################################
 Nrep = 5         # number of repetitions. At least 3, 5 recommended 
-obsname = 'Gabriel' # observer name, in my case, GA.
+obsname = 'Samy' # observer name, in my case, GA.
 
 # vector with all stimuli filenames in each condition. In this example we have 
 # two conditions, 'red' and 'blue', and 6 stimuli per condition
