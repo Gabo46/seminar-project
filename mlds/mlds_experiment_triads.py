@@ -284,11 +284,11 @@ if __name__ == "__main__":
         
     # it no argument passed, uses default design file    
     else:
-        designfile = 'design_triads.csv'
+        designfile = 'designs/Gabriel/Gabriel_triads_0.csv'
 
     
     # for fullscreen, use fullscreen=True and give your correct screen resolution in width= and height=
     win = Experiment(caption="MLDS experiment with triads", 
-                     vsync=False, height=800, width=1200, fullscreen=False)
+                     vsync=False,  fullscreen=True)
     pyglet.app.run()
 

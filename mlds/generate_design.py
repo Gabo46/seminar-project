@@ -108,11 +108,12 @@ obsname = 'Gabriel' # observer name, in my case, GA.
 
 # vector with all stimuli filenames in each condition. In this example we have 
 # two conditions, 'red' and 'blue', and 6 stimuli per condition
-condA = ['../images/landscape/original/original.jpg', '../images/landscape/original/x2.jpg', '../images/landscape/original/x4.jpg', '../images/landscape/original/x8.jpg']
+condA = ['../images/face/original.jpg', '../images/face/x2_scaled.jpg', '../images/face/x4_scaled.jpg', '../images/face/x8_scaled.jpg', '../images/face/x16_scaled.jpg']
+condB = ['../images/face/original.jpg', '../images/face/30_scaled.jpg', '../images/face/60_scaled.jpg', '../images/face/75_scaled.jpg', '../images/face/85_scaled.jpg', '../images/face/95_scaled.jpg']
 
-conditions = [condA] # extend this list if necessary
+conditions = [condA, condB] # extend this list if necessary
 
-exp = 'quadruples' # 'triads' or 'quadruples'
+exp = 'triads' # 'triads' or 'quadruples'
 
 ### Added line: Create folder for observer if not exsists
 
