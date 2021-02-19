@@ -104,12 +104,12 @@ def create_design_triads(v):
 ##############################################################################
 ###################### Generting Design Files ################################
 Nrep = 5         # number of repetitions. At least 3, 5 recommended 
-obsname = 'Samy' # observer name, in my case, GA.
+obsname = 'Gabriel' # observer name, in my case, GA.
 
 # vector with all stimuli filenames in each condition. In this example we have 
 # two conditions, 'red' and 'blue', and 6 stimuli per condition
-condA = ['../images/face/original.jpg', '../images/face/x2_scaled.jpg', '../images/face/x4_scaled.jpg', '../images/face/x8_scaled.jpg', '../images/face/x16_scaled.jpg']
-condB = ['../images/face/original.jpg', '../images/face/30_scaled.jpg', '../images/face/60_scaled.jpg', '../images/face/75_scaled.jpg', '../images/face/85_scaled.jpg', '../images/face/95_scaled.jpg']
+condA = ['../images/landscape/original.jpg', '../images/landscape/x2_scaled.jpg', '../images/landscape/x4_scaled.jpg', '../images/landscape/x8_scaled.jpg', '../images/landscape/x16_scaled.jpg']
+condB = ['../images/landscape/original.jpg', '../images/landscape/30_scaled.jpg', '../images/landscape/60_scaled.jpg', '../images/landscape/75_scaled.jpg', '../images/landscape/85_scaled.jpg', '../images/landscape/95_scaled.jpg']
 
 conditions = [condA, condB] # extend this list if necessary
 
