@@ -2,7 +2,7 @@
 
 # change to your working directory. Change it to wherever you 
 # have your files in your system 
-setwd("/home/guille/git/seminar_image_quality_and_vision/experiment_code/mlds_experiments")
+setwd("C:/Users/Gabriel/seminar-project/mlds")
 
 # First, you need to install the package. 
 # you only need to do this once, you can comment 
@@ -32,20 +32,22 @@ library(MLDS)
 
 
 # example data with triads
-# condition BLUE 
-#d1 <- read.csv('design_GA_triads_0_results_blue.csv')
-#d2 <- read.csv('design_GA_triads_1_results_blue.csv')
-#d3 <- read.csv('design_GA_triads_1_results_blue.csv')
+# condition Factor 
+d1 <- read.csv('designs/Gabriel/Gabriel_triads_0_results_Factor.csv')
+d2 <- read.csv('designs/Gabriel/Gabriel_triads_1_results_Factor.csv')
+d3 <- read.csv('designs/Gabriel/Gabriel_triads_2_results_Factor.csv')
+d4 <- read.csv('designs/Gabriel/Gabriel_triads_3_results_Factor.csv')
+d5 <- read.csv('designs/Gabriel/Gabriel_triads_4_results_Factor.csv')
 
-#  condition RED
-d1 <- read.csv('design_GA_triads_0_results_red.csv')
-d2 <- read.csv('design_GA_triads_1_results_red.csv')
-d3 <- read.csv('design_GA_triads_1_results_red.csv')
+#  condition Compression
+#d1 <- read.csv('design_GA_triads_0_results_red.csv')
+#d2 <- read.csv('design_GA_triads_1_results_red.csv')
+#d3 <- read.csv('design_GA_triads_1_results_red.csv')
 
 
 # puts together. If you have only one file,
 # then don't do this step, 
-d <- rbind(d1, d2, d3) #
+d <- rbind(d1, d2, d3, d4, d5) #
 
 # instead you just call  #d <- read.csv('myfile.csv')
 
@@ -61,8 +63,7 @@ d <- rbind(d1, d2, d3) #
 # the stimulus vector is..
 
 # I have just copied it from the generate_stim.py  script
-stim <- c(0.0, 0.25, 0.5, 0.75, 0.9, 0.98)
-
+stim <- c(0, 2, 4, 8, 16)
 
 
 # make a properly formatted dataframe. It adds an 'attribute' 

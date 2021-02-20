@@ -23,29 +23,38 @@ import pandas as pd
 ######################################################################
 ####### change the follwing variables as necessary
 # list all the results files
-files = ['design_GA_triads_0_results.csv', 'design_GA_triads_1_results.csv',  'design_GA_triads_2_results.csv']
+files = [
+    'designs/Gabriel/Gabriel_triads_0_results.csv',
+    'designs/Gabriel/Gabriel_triads_1_results.csv',
+    'designs/Gabriel/Gabriel_triads_2_results.csv',
+    'designs/Gabriel/Gabriel_triads_3_results.csv',
+    'designs/Gabriel/Gabriel_triads_4_results.csv'
+]
 #files = ['design_GA_quadruples_0_results.csv', 'design_GA_quadruples_1_results.csv', 'design_GA_quadruples_2_results.csv']
 
 # mapping: stimuli filenames --> stimulus vector, starting at one 
 # (vectors in R start at one, not like in python)
 # Here you should put the order of the stimuli you chose
-mappingA = {'r_0_red.png': 1,
-            'r_1_red.png': 2,
-            'r_2_red.png': 3,
-            'r_3_red.png': 4,
-            'r_4_red.png': 5,
-            'r_5_red.png': 6}
+mappingA = {
+    '../images/landscape/original.jpg': 1,
+    '../images/landscape/x2_scaled.jpg': 2,
+    '../images/landscape/x4_scaled.jpg': 3,
+    '../images/landscape/x8_scaled.jpg': 4,
+    '../images/landscape/x16_scaled.jpg': 5
+    }
 
-mappingB = {'r_0_blue.png': 1,
-            'r_1_blue.png': 2,
-            'r_2_blue.png': 3,
-            'r_3_blue.png': 4,
-            'r_4_blue.png': 5,
-            'r_5_blue.png': 6}
+mappingB = {
+    '../images/landscape/original.jpg' : 1,
+    '../images/landscape/30_scaled.jpg': 2,
+    '../images/landscape/60_scaled.jpg': 3,
+    '../images/landscape/75_scaled.jpg': 4,
+    '../images/landscape/85_scaled.jpg': 5,
+    '../images/landscape/95_scaled.jpg': 6
+    }
 
 ## extend if you have more conditions 
 conditions = [mappingA, mappingB] # extend this list if necessary
-condnames = ['red', 'blue']       # names of the conditons. 
+condnames = ['Factor', 'Compression']       # names of the conditons. 
 # the processed files will be saved using these suffixes
 
 ######################################################################
