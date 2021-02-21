@@ -2,7 +2,7 @@
 
 # change to your working directory. Change it to wherever you 
 # have your files in your system 
-setwd("C:/Users/Gabriel/seminar-project/mlds")
+setwd("C:/Users/Gabriel/seminar-project")
 
 # First, you need to install the package. 
 # you only need to do this once, you can comment 
@@ -33,21 +33,54 @@ library(MLDS)
 
 # example data with triads
 # condition Factor 
-d1 <- read.csv('designs/Gabriel/Gabriel_triads_0_results_Factor.csv')
-d2 <- read.csv('designs/Gabriel/Gabriel_triads_1_results_Factor.csv')
-d3 <- read.csv('designs/Gabriel/Gabriel_triads_2_results_Factor.csv')
-d4 <- read.csv('designs/Gabriel/Gabriel_triads_3_results_Factor.csv')
-d5 <- read.csv('designs/Gabriel/Gabriel_triads_4_results_Factor.csv')
+# d1 <- read.csv('results/landscape/Samy/0_Factor.csv')
+# d2 <- read.csv('results/landscape/Samy/1_Factor.csv')
+# d3 <- read.csv('results/landscape/Samy/2_Factor.csv')
+# d4 <- read.csv('results/landscape/Samy/3_Factor.csv')
+# d5 <- read.csv('results/landscape/Samy/4_Factor.csv')
+# d6 <- read.csv('results/landscape/Gabriel/0_Factor.csv')
+# d7 <- read.csv('results/landscape/Gabriel/1_Factor.csv')
+# d8 <- read.csv('results/landscape/Gabriel/2_Factor.csv')
+# d9 <- read.csv('results/landscape/Gabriel/3_Factor.csv')
+# d10 <- read.csv('results/landscape/Gabriel/4_Factor.csv')
+# d11 <- read.csv('results/landscape/Muhammed/0_Factor.csv')
+# d12 <- read.csv('results/landscape/Muhammed/1_Factor.csv')
+# d13 <- read.csv('results/landscape/Muhammed/2_Factor.csv')
+# d14 <- read.csv('results/landscape/Muhammed/3_Factor.csv')
+# d15 <- read.csv('results/landscape/Muhammed/4_Factor.csv')
+# d16 <- read.csv('results/landscape/Aleks/0_Factor.csv')
+# d17 <- read.csv('results/landscape/Aleks/1_Factor.csv')
+# d18 <- read.csv('results/landscape/Aleks/2_Factor.csv')
+# d19 <- read.csv('results/landscape/Aleks/3_Factor.csv')
+# d20 <- read.csv('results/landscape/Aleks/4_Factor.csv')
 
 #  condition Compression
-#d1 <- read.csv('design_GA_triads_0_results_red.csv')
-#d2 <- read.csv('design_GA_triads_1_results_red.csv')
-#d3 <- read.csv('design_GA_triads_1_results_red.csv')
+d1 <- read.csv('results/landscape/Samy/0_Compression.csv')
+d2 <- read.csv('results/landscape/Samy/1_Compression.csv')
+d3 <- read.csv('results/landscape/Samy/2_Compression.csv')
+d4 <- read.csv('results/landscape/Samy/3_Compression.csv')
+d5 <- read.csv('results/landscape/Samy/4_Compression.csv')
+d6 <- read.csv('results/landscape/Gabriel/0_Compression.csv')
+d7 <- read.csv('results/landscape/Gabriel/1_Compression.csv')
+d8 <- read.csv('results/landscape/Gabriel/2_Compression.csv')
+d9 <- read.csv('results/landscape/Gabriel/3_Compression.csv')
+d10 <- read.csv('results/landscape/Gabriel/4_Compression.csv')
+d11 <- read.csv('results/landscape/Muhammed/0_Compression.csv')
+d12 <- read.csv('results/landscape/Muhammed/1_Compression.csv')
+d13 <- read.csv('results/landscape/Muhammed/2_Compression.csv')
+d14 <- read.csv('results/landscape/Muhammed/3_Compression.csv')
+d15 <- read.csv('results/landscape/Muhammed/4_Compression.csv')
+d16 <- read.csv('results/landscape/Aleks/0_Compression.csv')
+d17 <- read.csv('results/landscape/Aleks/1_Compression.csv')
+d18 <- read.csv('results/landscape/Aleks/2_Compression.csv')
+d19 <- read.csv('results/landscape/Aleks/3_Compression.csv')
+d20 <- read.csv('results/landscape/Aleks/4_Compression.csv')
 
 
 # puts together. If you have only one file,
 # then don't do this step, 
-d <- rbind(d1, d2, d3, d4, d5) #
+d <- rbind(d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13, d14, d15,
+           d16, d17, d18, d19, d20) #
 
 # instead you just call  #d <- read.csv('myfile.csv')
 
@@ -63,7 +96,8 @@ d <- rbind(d1, d2, d3, d4, d5) #
 # the stimulus vector is..
 
 # I have just copied it from the generate_stim.py  script
-stim <- c(0, 2, 4, 8, 16)
+# stim <- c(0, 2, 4, 8, 16)
+stim <- c(0, 30, 60, 75, 85, 95)
 
 
 # make a properly formatted dataframe. It adds an 'attribute' 
@@ -111,3 +145,4 @@ plot(scale, xlab="Correlation coefficient - r", ylab="Perceptual scale")
 dev.off()
 
 # END
+
