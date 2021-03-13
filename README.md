@@ -1,22 +1,93 @@
 ```python
-import ipywidgets as wg
-from PIL import Image
-
-def f(x):
-    if x == 1:
-        return Image.open("images/cartoon/original.jpg")
-    elif x == 2:
-        return Image.open("images/cartoon/x2_scaled.jpg")
-    elif x == 3:
-        return Image.open("images/cartoon/x4_scaled.jpg")
-    else:
-        return Image.open("images/cartoon/x8_scaled.jpg")
-
-wg.interact(f, x=wg.IntSlider(min=1,max=4,step=1));
+import IPython
 ```
 
 
-    interactive(children=(IntSlider(value=1, description='x', max=4, min=1), Output()), _dom_classes=('widget-inte…
+```python
+html = """
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/themes/splide-skyblue.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+
+<div class="splide">
+    <div class="splide__track">
+        <ul class="splide__list text-center">
+            <li class="splide__slide">
+                <h3>Original</h3>
+                <img src="images/cartoon/original.jpg" style="margin-left:auto;margin-right:auto" />
+            </li>
+            <li class="splide__slide">
+                <h3>Skalierungsfaktor: 2</h3>
+                <img src="images/cartoon/x2_scaled.jpg" style="margin-left:auto;margin-right:auto" />
+            </li>
+            <li class="splide__slide">
+                <h3>Skalierungsfaktor: 4</h3>
+                <img src="images/cartoon/x4_scaled.jpg" style="margin-left:auto;margin-right:auto" />
+            </li>
+            <li class="splide__slide">
+                <h3>Skalierungsfaktor: 8</h3>
+                <img src="images/cartoon/x8_scaled.jpg" style="margin-left:auto;margin-right:auto" />
+            </li>
+            <li class="splide__slide">
+                <h3>Skalierungsfaktor: 16</h3>
+                <img src="images/cartoon/x16_scaled.jpg" style="margin-left:auto;margin-right:auto" />
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    new Splide('.splide', {
+        type: 'loop',
+        autoplay: true
+    }).mount();
+</script>
+"""
+
+IPython.display.HTML(data=html)
+```
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/themes/splide-skyblue.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+
+<div class="splide">
+    <div class="splide__track">
+        <ul class="splide__list text-center">
+            <li class="splide__slide">
+                <h3>Original</h3>
+                <img src="images/cartoon/original.jpg" style="margin-left:auto;margin-right:auto" />
+            </li>
+            <li class="splide__slide">
+                <h3>Skalierungsfaktor: 2</h3>
+                <img src="images/cartoon/x2_scaled.jpg" style="margin-left:auto;margin-right:auto" />
+            </li>
+            <li class="splide__slide">
+                <h3>Skalierungsfaktor: 4</h3>
+                <img src="images/cartoon/x4_scaled.jpg" style="margin-left:auto;margin-right:auto" />
+            </li>
+            <li class="splide__slide">
+                <h3>Skalierungsfaktor: 8</h3>
+                <img src="images/cartoon/x8_scaled.jpg" style="margin-left:auto;margin-right:auto" />
+            </li>
+            <li class="splide__slide">
+                <h3>Skalierungsfaktor: 16</h3>
+                <img src="images/cartoon/x16_scaled.jpg" style="margin-left:auto;margin-right:auto" />
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    new Splide('.splide', {
+        type: 'loop',
+        autoplay: true
+    }).mount();
+</script>
+
+
 
 
 
