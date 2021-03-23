@@ -32,7 +32,7 @@ img = Image.open("PATH_TO_IMG")
 save_compressed(face, "PATH_TO_FOLDER_WITH_IMAGES")
 ```
 
-### Image Superresolution mit der Idealo ISR Library
+### Image Superresolution mit der <a href="https://github.com/idealo/image-super-resolution" target="_blank">Idealo ISR Library</a>
 
 ```python
 import numpy as np
@@ -46,9 +46,9 @@ def scale_up(rdn, directory):
     Parameter
     ---------
     rdn : RDN
-        Trainiertes Neuronales Netzwert
+        Trainiertes Neuronales Netzwerk
     directory : str
-        Pfad zum Ordner mit den BIldenr
+        Pfad zum Ordner mit den Bildern
     
     """
     for i in range(1, 5):
@@ -65,9 +65,11 @@ def scale_up2(rdn, directory, rates):
     Parameter
     ---------
     rdn : RDN
-        Trainiertes Neuronales Netzwert
+        Trainiertes Neuronales Netzwerk
     directory : str
-        Pfad zum Ordner mit den BIldenr
+        Pfad zum Ordner mit den Bildern
+    rates : list
+        Liste mit Komprimierungsstufen als Ganzzahl (0-100)
     
     """
     for rate in rates:
