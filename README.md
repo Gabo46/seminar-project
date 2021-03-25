@@ -143,67 +143,74 @@ Dass Samy schwul ist, steht nicht zur Diskussion
     </tr>
     <tr>
         <td style="text-align:center">Original</td>
-        <td style="text-align:center"><a href="images/cartoon/original.jpg">cartoon/original.jpg</a></td>
-        <td style="text-align:center"><a href="images/face/original.jpg">face/original.jpg</a></td>
-        <td style="text-align:center"><a href="images/landscape/original.jpg">landscape/original.jpg</a></td>
+        <td style="text-align:center"><a href="images/cartoon/original.jpg">Zum Bild</a></td>
+        <td style="text-align:center"><a href="images/face/original.jpg">Zum Bild</a></td>
+        <td style="text-align:center"><a href="images/landscape/original.jpg">Zum Bild</a></td>
     </tr>
     <tr>
         <td style="text-align:center">Skalierungsstufe 2</td>
-        <td style="text-align:center"><a href="images/cartoon/x2_scaled.jpg">cartoon/x2_scaled.jpg</a></td>
-        <td style="text-align:center"><a href="images/face/x2_scaled.jpg">face/x2_scaled.jpg</a></td>
-        <td style="text-align:center"><a href="images/landscape/x2_scaled.jpg">landscape/x2_scaled.jpg</a></td>
+        <td style="text-align:center"><a href="images/cartoon/x2_scaled.jpg">Zum Bild</a></td>
+        <td style="text-align:center"><a href="images/face/x2_scaled.jpg">Zum Bild</a></td>
+        <td style="text-align:center"><a href="images/landscape/x2_scaled.jpg">Zum Bild</a></td>
     </tr>
     <tr>
         <td style="text-align:center">Skalierungsstufe 4</td>
-        <td style="text-align:center"><a href="images/cartoon/x4_scaled.jpg">cartoon/x4_scaled.jpg</a></td>
-        <td style="text-align:center"><a href="images/face/x4_scaled.jpg">face/x4_scaled.jpg</a></td>
-        <td style="text-align:center"><a href="images/landscape/x4_scaled.jpg">landscape/x4_scaled.jpg</a></td>
+        <td style="text-align:center"><a href="images/cartoon/x4_scaled.jpg">Zum Bild</a></td>
+        <td style="text-align:center"><a href="images/face/x4_scaled.jpg">Zum Bild</a></td>
+        <td style="text-align:center"><a href="images/landscape/x4_scaled.jpg">Zum Bild</a></td>
     </tr>
     <tr>
         <td style="text-align:center">Skalierungsstufe 8</td>
-        <td style="text-align:center"><a href="images/cartoon/x8_scaled.jpg">cartoon/x8_scaled.jpg</a></td>
-        <td style="text-align:center"><a href="images/face/x8_scaled.jpg">face/x8_scaled.jpg</a></td>
-        <td style="text-align:center"><a href="images/landscape/x8_scaled.jpg">landscape/x8_scaled.jpg</a></td>
+        <td style="text-align:center"><a href="images/cartoon/x8_scaled.jpg">Zum Bild</a></td>
+        <td style="text-align:center"><a href="images/face/x8_scaled.jpg">Zum Bild</a></td>
+        <td style="text-align:center"><a href="images/landscape/x8_scaled.jpg">Zum Bild</a></td>
     </tr>
     <tr>
         <td style="text-align:center">Skalierungsstufe 16</td>
-        <td style="text-align:center"><a href="images/cartoon/x16_scaled.jpg">cartoon/x16_scaled.jpg</a></td>
-        <td style="text-align:center"><a href="images/face/x16_scaled.jpg">face/x16_scaled.jpg</a></td>
-        <td style="text-align:center"><a href="images/landscape/x16_scaled.jpg">landscape/x16_scaled.jpg</a></td>
+        <td style="text-align:center"><a href="images/cartoon/x16_scaled.jpg">Zum Bild</a></td>
+        <td style="text-align:center"><a href="images/face/x16_scaled.jpg">Zum Bild</a></td>
+        <td style="text-align:center"><a href="images/landscape/x16_scaled.jpg">Zum Bild</a></td>
     </tr>
     <tr>
         <td style="text-align:center">30% Komprimierung</td>
-        <td style="text-align:center"><a href="images/cartoon/30_scaled.jpg">cartoon/30_scaled.jpg</a></td>
-        <td style="text-align:center"><a href="images/face/30_scaled.jpg">face/30_scaled.jpg</a></td>
-        <td style="text-align:center"><a href="images/landscape/30_scaled.jpg">landscape/30_scaled.jpg</a></td>
+        <td style="text-align:center"><a href="images/cartoon/30_scaled.jpg">Zum Bild</a></td>
+        <td style="text-align:center"><a href="images/face/30_scaled.jpg">Zum Bild</a></td>
+        <td style="text-align:center"><a href="images/landscape/30_scaled.jpg">Zum Bild</a></td>
     </tr>
     <tr>
         <td style="text-align:center">60% Komprimierung</td>
-        <td style="text-align:center"><a href="images/cartoon/60_scaled.jpg">cartoon/60_scaled.jpg</a></td>
-        <td style="text-align:center"><a href="images/face/60_scaled.jpg">face/60_scaled.jpg</a></td>
-        <td style="text-align:center"><a href="images/landscape/60_scaled.jpg">landscape/60_scaled.jpg</a></td>
+        <td style="text-align:center"><a href="images/cartoon/60_scaled.jpg">Zum Bild</a></td>
+        <td style="text-align:center"><a href="images/face/60_scaled.jpg">Zum Bild</a></td>
+        <td style="text-align:center"><a href="images/landscape/60_scaled.jpg">Zum Bild</a></td>
     </tr>
     <tr>
         <td style="text-align:center">75% Komprimierung</td>
-        <td style="text-align:center"><a href="images/cartoon/75_scaled.jpg">cartoon/75_scaled.jpg</a></td>
-        <td style="text-align:center"><a href="images/face/75_scaled.jpg">face/75_scaled.jpg</a></td>
-        <td style="text-align:center"><a href="images/landscape/75_scaled.jpg">landscape/75_scaled.jpg</a></td>
+        <td style="text-align:center"><a href="images/cartoon/75_scaled.jpg">Zum Bild</a></td>
+        <td style="text-align:center"><a href="images/face/75_scaled.jpg">Zum Bild</a></td>
+        <td style="text-align:center"><a href="images/landscape/75_scaled.jpg">Zum Bild</a></td>
     </tr>
     <tr>
         <td style="text-align:center">85% Komprimierung</td>
-        <td style="text-align:center"><a href="images/cartoon/85_scaled.jpg">cartoon/85_scaled.jpg</a></td>
-        <td style="text-align:center"><a href="images/face/85_scaled.jpg">face/85_scaled.jpg</a></td>
-        <td style="text-align:center"><a href="images/landscape/85_scaled.jpg">landscape/85_scaled.jpg</a></td>
+        <td style="text-align:center"><a href="images/cartoon/85_scaled.jpg">Zum Bild</a></td>
+        <td style="text-align:center"><a href="images/face/85_scaled.jpg">Zum Bild</a></td>
+        <td style="text-align:center"><a href="images/landscape/85_scaled.jpg">Zum Bild</a></td>
     </tr>
     <tr>
         <td style="text-align:center">95% Komprimierung</td>
-        <td style="text-align:center"><a href="images/cartoon/95_scaled.jpg">cartoon/95_scaled.jpg</a></td>
-        <td style="text-align:center"><a href="images/face/95_scaled.jpg">face/95_scaled.jpg</a></td>
-        <td style="text-align:center"><a href="images/landscape/95_scaled.jpg">landscape/95_scaled.jpg</a></td>
+        <td style="text-align:center"><a href="images/cartoon/95_scaled.jpg">Zum Bild</a></td>
+        <td style="text-align:center"><a href="images/face/95_scaled.jpg">Zum Bild</a></td>
+        <td style="text-align:center"><a href="images/landscape/95_scaled.jpg">Zum Bild</a></td>
+    </tr>
+    <tr>
+        <td style="text-align:center">Horizontal Cut (verschiedene Skalierungsstufen)</td>
+        <td style="text-align:center"><a href="images/cartoon/horizontal_cut_scaling.png">Zum Bild</a></td>
+        <td style="text-align:center"><a href="images/face/horizontal_cut_scaling.png">Zum Bild</a></td>
+        <td style="text-align:center"><a href="images/landscape/horizontal_cut_scaling.png">Zum Bild</a></td>
+    </tr>
+    <tr>
+        <td style="text-align:center">Horizontal Cut (verschiedene Komprimierungsstufen)</td>
+        <td style="text-align:center"><a href="images/cartoon/horizontal_cut_compression.png">Zum Bild</a></td>
+        <td style="text-align:center"><a href="images/face/horizontal_cut_compression.png">Zum Bild</a></td>
+        <td style="text-align:center"><a href="images/landscape/horizontal_cut_compression.png">Zum Bild</a></td>
     </tr>
 </table>
-
-
-```python
-
-```
