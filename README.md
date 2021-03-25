@@ -22,17 +22,15 @@ Die <a href="https://github.com/idealo/image-super-resolution" target="_blank">I
 
 <div style="display:flex" class="text-center">
     <div>
-        <img src="images/cartoon/original.jpg" />
-        <a href="https://www.wallpapertip.com/wpic/obwwTm_cute-cartoon-wallpaper-backgrounds-tom-and-jerry/" target="_blank">Bildquelle</a>
+        <img src="images/original_images.png">
     </div>
-    <div>
-        <img src="images/face/original.jpg" />
-        <a href="https://www.pexels.com/photo/sad-bald-man-4584411/" target="_blank">Bildquelle</a>
-    </div>
-    <div>
-        <img src="images/landscape/original.jpg" />
-        <a href="https://www.pexels.com/de-de/foto/grunes-feld-259280/" target="_blank">Bildquelle</a>
-    </div>
+</div>
+<div style="display:flex" class="text-center">
+      <div style="width:100%"><a href="https://www.wallpapertip.com/wpic/obwwTm_cute-cartoon-wallpaper-backgrounds-tom-and-jerry/"> Bildquelle </a></div>
+      <div style="width:100%"><a href="https://www.pexels.com/photo/man-in-yellow-crew-neck-t-shirt-4001263/"> Bildquelle </a>
+      </div>
+      <div style="width:100%"><a href="https://www.pexels.com/photo/pathway-in-between-of-green-grass-field-67211/">Bildquelle</a>
+      </div>
 </div>
 
 ### JPEG Komprimierung der Bilder mittels PIL
