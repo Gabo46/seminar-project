@@ -24,6 +24,18 @@ from PIL import Image
 rates = [30, 60, 75, 85, 95] # Compression rates
 
 def save_compressed(img, directory):
+    """
+    Speichert das Bild in verschiedenen Komprimierungsstufen
+    
+    Parameter
+    ---------
+    img : Image
+        Das Bild, welches komprimiert werden soll
+    directory : str
+        Pfad, in dem die komprimierten Bilder hinterlegt werden sollen
+    
+    """
+    
     for rate in rates:
         quality = 100 - rate
         img.save("{}/{}.jpg".format(directory, rate), "JPEG", quality=quality)
@@ -51,6 +63,7 @@ def scale_up(rdn, directory):
         Pfad zum Ordner mit den Bildern
     
     """
+    
     for i in range(1, 5):
         factor = 2**i
         current_image = np.array(Image.open("{}/x{}.jpg".format(directory, factor)))
@@ -72,6 +85,7 @@ def scale_up2(rdn, directory, rates):
         Liste mit Komprimierungsstufen als Ganzzahl (0-100)
     
     """
+    
     for rate in rates:
         current_image = np.array(Image.open("{}/{}.jpg".format(directory, rate)))
         current_image = rdn.predict(current_image)
@@ -86,12 +100,22 @@ scale_up2(rdn2, "PATH_TO_FOLDER_WITH_IMAGES", rates = [30, 60, 75, 85, 95])
 ```
 
 ## 3. Ergebnisse
+
 Alles wie geplant
+
+#### Horizontal Cut (Landschaft)
+<img src="images/landscape/horizontal_cut_scaling.png" width="85%" />
+
+Und hier noch einmal für alle Komprimierungsstufen nach Anwendung der Super-Resolution:
+
+<img src="images/landscape/horizontal_cut_compression.png" width="85%" />
 
 ## 4. Diskussion
 Dass Samy schwul ist, steht nicht zur Diskussion
 
 ## 5. Anhang
+
+### Unsere Bilder
 
 <table class="table">
     <tr>
