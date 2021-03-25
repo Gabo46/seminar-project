@@ -25,11 +25,11 @@ Die <a href="https://github.com/idealo/image-super-resolution" target="_blank">I
         <img src="images/original_images.png">
     </div>
 </div>
-<div style="display:flex" class="text-center">
-      <div style="width:100%"><a href="https://www.wallpapertip.com/wpic/obwwTm_cute-cartoon-wallpaper-backgrounds-tom-and-jerry/"> Bildquelle </a></div>
-      <div style="width:100%"><a href="https://www.pexels.com/photo/man-in-yellow-crew-neck-t-shirt-4001263/"> Bildquelle </a>
+<div>
+      <div>Bildquelle Cartoon: <a href="https://www.wallpapertip.com/wpic/obwwTm_cute-cartoon-wallpaper-backgrounds-tom-and-jerry/">https://www.wallpapertip.com/wpic/obwwTm_cute-cartoon-wallpaper-backgrounds-tom-and-jerry/</a></div>
+      <div>Bildquelle Gesicht: <a href="https://www.pexels.com/photo/man-in-yellow-crew-neck-t-shirt-4001263/"> https://www.pexels.com/photo/man-in-yellow-crew-neck-t-shirt-4001263/</a>
       </div>
-      <div style="width:100%"><a href="https://www.pexels.com/photo/pathway-in-between-of-green-grass-field-67211/">Bildquelle</a>
+      <div>Bildquelle Landschaft: <a href="https://www.pexels.com/photo/pathway-in-between-of-green-grass-field-67211/">https://www.pexels.com/photo/pathway-in-between-of-green-grass-field-67211</a>
       </div>
 </div>
 
