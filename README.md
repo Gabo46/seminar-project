@@ -6,7 +6,7 @@
 Machine Learning ist gerade vallah krass und besonders für Computer Vision richtig mashallah
 
 
-## Hypothesen
+### Hypothesen
 
 1. Bei kleinen Vergrößerungs- und Komprimierungsstufen ist ein Qualitätsunterschied kaum wahrnehmbar.
 
@@ -14,7 +14,26 @@ Machine Learning ist gerade vallah krass und besonders für Computer Vision rich
 
 
 ## 2. Experimentelles Design
-Wir haben Samy genommen und ihm gesagt er sei schwul. Er hat gestanden.
+
+Die <a href="https://github.com/idealo/image-super-resolution" target="_blank">Idealo Super-Resolution Library</a> bietet unterschiedliche Typen von Neuronalen Netzwerken an, welche neben der Skalierung auch Entfernung von Noise anbieten. 
+
+#### Unsere Bilder
+
+
+<div style="display:flex" class="text-center">
+    <div>
+        <img src="images/cartoon/original.jpg" />
+        <a href="https://www.wallpapertip.com/wpic/obwwTm_cute-cartoon-wallpaper-backgrounds-tom-and-jerry/" target="_blank">Bildquelle</a>
+    </div>
+    <div>
+        <img src="images/face/original.jpg" />
+        <a href="https://www.pexels.com/photo/sad-bald-man-4584411/" target="_blank">Bildquelle</a>
+    </div>
+    <div>
+        <img src="images/landscape/original.jpg" />
+        <a href="https://www.pexels.com/de-de/foto/grunes-feld-259280/" target="_blank">Bildquelle</a>
+    </div>
+</div>
 
 ### JPEG Komprimierung der Bilder mittels PIL
 
