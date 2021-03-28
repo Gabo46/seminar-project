@@ -3,8 +3,36 @@
 ### Gabriel Dogadov, Rasmy Hamdad, Mhamad Ayden, Alex Frank
 
 ## 1. Einleitung
-Machine Learning ist gerade vallah krass und besonders für Computer Vision richtig mashallah
 
+
+
+Machine Learning ist gerade in aller Munde, Computer Vision richtig krass, Image Super Resolution ein Beispiel
+
+Nutzen: Bilder vergrößern. Kleine Bilder erstellen und diese bequem hochskalieren.
+
+<img src="images/upscaling.svg" />
+
+Beim Hochskalieren werden Bilder auf größere Bilder mit deutlich mehr Pixeln abgebildet. Es reicht nicht die Pixelwerte vom Originalbild in das skalierte Bild zu kopieren. Es bleiben weitere Pixel übrig, denen man Werte zuweisen muss.
+
+Eine herkömmliche Methode zum Füllen der Pixel bei vergrößerten Bildern ist die <a href="https://en.wikipedia.org/wiki/Bicubic_interpolation">Bikubische Interpolation</a>. Das Verfahren erzeugt aber häufig unscharfe Bilder, sodass die Bildqualität nach dessen Anwendung darunter leidet.
+
+<img src="images/bicubic.svg" />
+
+Eine Lösung für dieses Problem soll die Image Super Resolution liefern. Dazu wird ein neuronales Netzwerk darauf trainiert, Bilder unterschiedlicher Größen so zu vergrößern, dass die Bildqualität erhalten bleibt.
+
+Zwar ist das Verfahren noch sehr jung, trotzdem gibt es bereits kommerzielle Anbieter
+(<a href="https://bigjpg.com/">Bigjpg</a>, <a href="https://letsenhance.io/">LetsEnhance.io</a>, 
+ <a href="https://deepai.org/machine-learning-model/torch-srgan">DeepAI</a>), 
+die versprechen unsere Bilder ohne jegliche Qualitätsverluste hoch zu skalieren.
+
+Neben Hochskalierung gibt es noch Noise Cancellation...
+
+Idealo ISR Library...
+Die <a href="https://github.com/idealo/image-super-resolution" target="_blank">Idealo Super-Resolution Library</a> bietet unterschiedliche Typen von Neuronalen Netzwerken an, welche neben der Skalierung auch Entfernung von Noise anbieten. 
+
+GANS...
+
+Grenzen des Verfahrens -> Hypothesen...
 
 ### Hypothesen
 
@@ -12,10 +40,6 @@ Machine Learning ist gerade vallah krass und besonders für Computer Vision rich
 
 2. Bei größeren Vergrößerungs- und Komprimierungsstufen verschlechtert sich die Bildqualität spürbar.
 
-
-## 2. Experimentelles Design
-
-Die <a href="https://github.com/idealo/image-super-resolution" target="_blank">Idealo Super-Resolution Library</a> bietet unterschiedliche Typen von Neuronalen Netzwerken an, welche neben der Skalierung auch Entfernung von Noise anbieten. 
 
 #### Unsere Bilder
 
@@ -32,6 +56,10 @@ Die <a href="https://github.com/idealo/image-super-resolution" target="_blank">I
       <div>Bildquelle Landschaft: <a href="https://www.pexels.com/photo/pathway-in-between-of-green-grass-field-67211/">https://www.pexels.com/photo/pathway-in-between-of-green-grass-field-67211</a>
       </div>
 </div>
+
+## 2. Experimentelles Design
+
+<img src="images/flow.svg" />
 
 ### JPEG Komprimierung der Bilder mittels PIL
 
