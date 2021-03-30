@@ -20,7 +20,7 @@ In diesem Bild sieht man ein um den Faktor 4 vergrößertes Bild. Die bikubische
 
 <img src="images/methods.png" />
 
-Das Bild wurde aus Ledig et al.(2017) entnommen.
+Das Bild wurde aus Ledig et al. (2017) entnommen.
 
 Zwar ist das Verfahren noch sehr jung, trotzdem gibt es bereits kommerzielle Anbieter
 (<a href="https://bigjpg.com/">Bigjpg</a>, <a href="https://letsenhance.io/">LetsEnhance.io</a>, 
@@ -152,9 +152,9 @@ scale_up2(rdn2, "PATH_TO_FOLDER_WITH_IMAGES", rates = [30, 60, 75, 85, 95])
 Wir haben 4 Skalierungsstufen (2, 4, 8 und 16) sowie 5 Komprimierungsstufen (30, 60, 75, 85 und 95). 
 
 
-<img src="images/mlds1.png" />
+<img src="images/mlds1.jpg" />
 
-<img src="images/mlds2.png" />
+<img src="images/mlds2.jpg" />
 
 ## 3. Ergebnisse
 
