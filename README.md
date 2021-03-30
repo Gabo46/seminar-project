@@ -23,9 +23,11 @@ Eine Lösung für dieses Problem soll die Image Super Resolution liefern. Dazu w
 Zwar ist das Verfahren noch sehr jung, trotzdem gibt es bereits kommerzielle Anbieter
 (<a href="https://bigjpg.com/">Bigjpg</a>, <a href="https://letsenhance.io/">LetsEnhance.io</a>, 
  <a href="https://deepai.org/machine-learning-model/torch-srgan">DeepAI</a>), 
-die versprechen unsere Bilder ohne jegliche Qualitätsverluste hoch zu skalieren.
+die versprechen unsere Bilder ohne jegliche Qualitätsverluste hoch zu skalieren. Diesem Versprechen möchten wir im Folgenden auf den Grund gehen.
 
 Neben Hochskalierung gibt es noch Noise Cancellation...
+
+-> Fragestellung
 
 Idealo ISR Library...
 Die <a href="https://github.com/idealo/image-super-resolution" target="_blank">Idealo Super-Resolution Library</a> bietet unterschiedliche Typen von Neuronalen Netzwerken an, welche neben der Skalierung auch Entfernung von Noise anbieten. 
@@ -58,6 +60,8 @@ Grenzen des Verfahrens -> Hypothesen...
 </div>
 
 ## 2. Experimentelles Design
+
+Zunächst wurden unsere Originalbilder verkleinert, sodass die Anzahl der Pixel beider Achsen die Hälte, ein Viertel, ein Achten und ein Sechzehntel des Originalbildes beträgt. Zusätzlich wurden die Bilder, deren Achsen um die Hälfte verkleinert wurden, mittels JPEG Komprimierung komprimiert. Anschließend wurden Bilder mit Super-Resolution wieder hochskaliert und mit dem Originalbild mittels MLDS verglichen.
 
 <img src="images/flow.svg" />
 
@@ -143,6 +147,14 @@ scale_up(rdn, "PATH_TO_FOLDER_WITH_IMAGES")
 scale_up2(rdn2, "PATH_TO_FOLDER_WITH_IMAGES", rates = [30, 60, 75, 85, 95])
    
 ```
+
+<h4>Maximum Likelihood Difference Scaling</h4>
+
+Wir haben 4 Skalierungsstufen (2, 4, 8 und 16) sowie 5 Komprimierungsstufen (30, 60, 75, 85 und 95). 
+
+$$
+    \frac{1}{2}
+$$
 
 ## 3. Ergebnisse
 
