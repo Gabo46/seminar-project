@@ -14,25 +14,24 @@ Nutzen: Bilder vergrößern. Kleine Bilder erstellen und diese bequem hochskalie
 
 Beim Hochskalieren werden Bilder auf größere Bilder mit deutlich mehr Pixeln abgebildet. Es reicht nicht die Pixelwerte vom Originalbild in das skalierte Bild zu kopieren. Es bleiben weitere Pixel übrig, denen man Werte zuweisen muss.
 
-Eine herkömmliche Methode zum Füllen der Pixel bei vergrößerten Bildern ist die <a href="https://en.wikipedia.org/wiki/Bicubic_interpolation">Bikubische Interpolation</a>. Das Verfahren erzeugt aber häufig unscharfe Bilder, sodass die Bildqualität nach dessen Anwendung darunter leidet.
+Eine herkömmliche Methode zum Füllen der Pixel bei vergrößerten Bildern ist die <a href="https://en.wikipedia.org/wiki/Bicubic_interpolation">Bikubische Interpolation</a>. Das Verfahren erzeugt aber häufig unscharfe Bilder, sodass die Bildqualität nach dessen Anwendung darunter leidet. Eine Lösung für dieses Problem soll die Image Super Resolution liefern. Dazu wird ein neuronales Netzwerk darauf trainiert, Bilder unterschiedlicher Größen so zu vergrößern, dass die Bildqualität erhalten bleibt.
 
-<img src="images/bicubic.svg" />
+In diesem Bild sieht man ein um den Faktor 4 vergrößertes Bild. Die bikubische Interpolation liefert ein unscharfes Bild, wohingegen SRResNet und SRGAN, welche auf neuronalen Netzen basieren, deutlich bessere Ergebnisse liefern. 
 
-Eine Lösung für dieses Problem soll die Image Super Resolution liefern. Dazu wird ein neuronales Netzwerk darauf trainiert, Bilder unterschiedlicher Größen so zu vergrößern, dass die Bildqualität erhalten bleibt.
+<img src="images/methods.png" />
+
+Das Bild wurde aus Ledig et al.(2017) entnommen.
 
 Zwar ist das Verfahren noch sehr jung, trotzdem gibt es bereits kommerzielle Anbieter
 (<a href="https://bigjpg.com/">Bigjpg</a>, <a href="https://letsenhance.io/">LetsEnhance.io</a>, 
  <a href="https://deepai.org/machine-learning-model/torch-srgan">DeepAI</a>), 
-die versprechen unsere Bilder ohne jegliche Qualitätsverluste hoch zu skalieren. Diesem Versprechen möchten wir im Folgenden auf den Grund gehen.
+die versprechen unsere Bilder ohne jegliche Qualitätsverluste hoch zu skalieren. Diesem Versprechen möchten wir im Folgenden auf den Grund gehen.<br>
+Neben der reinen Hochskalierung gibt es zusätzlich die Möglichkeit Noise von Bildern zu entfernen. Die Noise Cancellation kann also dafür sorgen, dass nicht nur die Bilder ohne Qualitätsverlust vergrößert werden, sondern auch die Bildqualität durch das Entfernen von Noise verbessert wird.
 
-Neben Hochskalierung gibt es noch Noise Cancellation...
+Das führt uns zu unserer Fragestellung, der wir auf den Grund gehen wollen: __Wie verändert sich die Bildqualität nach Anwendung der Super-Resolution?__
 
--> Fragestellung
-
-Idealo ISR Library...
-Die <a href="https://github.com/idealo/image-super-resolution" target="_blank">Idealo Super-Resolution Library</a> bietet unterschiedliche Typen von Neuronalen Netzwerken an, welche neben der Skalierung auch Entfernung von Noise anbieten. 
-
-GANS...
+Statt jeden Anbieter einzeln zu testen, testen wir die Super-Resolution mit der <a href="https://github.com/idealo/image-super-resolution" target="_blank">Idealo Super-Resolution Library</a>. Wir untersuchen hierbei die Möglichkeiten und Grenzen des Verfahrens.<br>
+Die <a href="https://github.com/idealo/image-super-resolution" target="_blank">Idealo Super-Resolution Library</a> bietet unterschiedliche Typen von neuronalen Netzwerken an, welche neben der Skalierung auch Noise Cancellation anbieten. Die Library bietet die Möglichkeit ein neuronales Netzwerk selbst zu trainieren oder ein bereits trainiertes zu verwenden. Die vortrainierten Netzwerke kommen mit unterschiedlichen Gewichten, wobei wir keine Gewichte speziell ausgewählt haben, sondern die Standardeinstellung übernommen haben.
 
 Grenzen des Verfahrens -> Hypothesen...
 
@@ -152,13 +151,22 @@ scale_up2(rdn2, "PATH_TO_FOLDER_WITH_IMAGES", rates = [30, 60, 75, 85, 95])
 
 Wir haben 4 Skalierungsstufen (2, 4, 8 und 16) sowie 5 Komprimierungsstufen (30, 60, 75, 85 und 95). 
 
-$$
-    \frac{1}{2}
-$$
+
+<img src="images/mlds1.png" />
+
+<img src="images/mlds2.png" />
 
 ## 3. Ergebnisse
 
-Alles wie geplant
+
+```python
+
+```
+
+
+```python
+
+```
 
 #### Horizontal Cut (Landschaft)
 <img src="images/landscape/horizontal_cut_scaling.png" width="85%" />
@@ -166,6 +174,14 @@ Alles wie geplant
 Und hier noch einmal für alle Komprimierungsstufen nach Anwendung der Super-Resolution:
 
 <img src="images/landscape/horizontal_cut_compression.png" width="85%" />
+
+<h4>Auswertung für verschiedene Skalierungsstufen</h4>
+
+<img src="images/res_scaling.png" />
+
+<h4>Auswertung für verschiedene Komprimierungsstufen</h4>
+
+<img src="images/res_comp.png" />
 
 ## 4. Diskussion
 Dass Samy schwul ist, steht nicht zur Diskussion
@@ -254,3 +270,12 @@ Dass Samy schwul ist, steht nicht zur Diskussion
         <td style="text-align:center"><a href="images/landscape/horizontal_cut_compression.png">Zum Bild</a></td>
     </tr>
 </table>
+
+### Referenzen
+
+C. Charrier, L. Maloney, H. Cherifi, and K. Knoblauch, "Maximum likelihood difference scaling of image quality in compression-degraded images," J. Opt. Soc. Am. A  24, 3418-3426 (2007).
+
+
+```python
+
+```
