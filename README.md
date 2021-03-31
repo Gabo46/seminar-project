@@ -1,6 +1,6 @@
-# Auswirkungen der Image-Superresolution auf die Bildqualität
+# Auswirkungen der Image Super-Resolution auf die Bildqualität
 
-### Gabriel Dogadov, Rasmy Hamdad, Mhamad Ayden, Alex Frank
+### Gabriel Dogadov, Samy Hamdad, Muhammed Aydin, Aleksandrs Frank
 
 ## 1. Einleitung
 
@@ -180,7 +180,7 @@ bzw. stark komprimierten Bilder deutlich als solche zu erkennen sind.
 
 <img src="images/face/compression_animated.gif" />
 
-Erwähnenswert ist ebenfalls, dass die skalierten Bilder heller sind als das Original. Dies könnte mit den Trainingsdaten zusammenhängen.
+Die Bilder mit kleiner Komprimierungsstufe sehen dem Original zwar ähnlich, sind aber deutlich heller als das Originalbild. Dies könnte an den Trainingsdaten des neuronalen Netzwerks liegen.
 
 Einen Unterschied sieht man auch deutlich im Horizontal Cut. 
 Hier sieht man die Intensität aller Pixel des Bildes, die sich auf dem Streifen auf mittlerer Höhe befinden.
@@ -190,7 +190,7 @@ Die rote/grüne/blaue Funktion stellt hierbei die jeweilige R/G/B-Intensität da
 
 <img src="images/face/horizontal_cut_scaling.png" width="85%" />
 
-Je höher der Vergrößerungsfaktor, umso mehr unterscheiden sich die Intensitäten der Pixel vom Originalbild. Außerdem ist auffällig, dass bei höherer Komprimierung die Funktion abgerundeter aussieht, d.h. starke Schwankungen in der Intensität sind kaum vorhanden.
+Je höher der Vergrößerungsfaktor, umso mehr unterscheiden sich die Intensitäten der Pixel vom Originalbild. Außerdem ist auffällig, dass bei höherer Komprimierung die Funktion abgerundeter aussieht, d.h. starke SChwingungen in der Intensität kaum vorhanden sind.
 
 ### Horizontal Cuts für verschiedene Komprimierungsstufen (Gesicht)
 
@@ -202,18 +202,42 @@ Das gleiche kann man auch für die verschiendenen Komprimierungen sagen: Je höh
 
 <img src="images/res_scaling.png" />
 
+Bis zur Skalierungsstufe 2 ist die Skala stets flach bzw. leicht negativ, was darauf hindeutet, dass die Bildqualität ähnlich zum Original ist.
+Für Skalierungsstufe 4 ist die Skala für den Cartoon ebenfalls flach, für die anderen Bilder aber höher. Ob damit die Super-Resolution für Cartoons besser funktioniert können wir bei nur vier Testpersonen und einem neuronalen Netzwerk, dessen Gewichte und Trainingsdaten wir nicht kennen, nicht behaupten.
+
 ### Auswertung für verschiedene Komprimierungsstufen
 
 <img src="images/res_comp.png" />
 
-
-```python
-Sowohl 
-```
+Bis zur Komprimierungsstufe 30% ist die Kurve auch hier ziemlich flach, aber etwas höher als bei den obigen Skalen.
+Zu beachten ist hierbei, dass die Bilder hier sowohl um den Faktor 2 vergrößert (die Gesamtzahl der Pixel um den Faktor 4) wurden,
+als auch komprimiert wurden. Außerdem ist erwähnenswert, dass Komprimierungen häufig bis zu einer Komprimierungsstufe 
+kaum bemerkbar sind. Mit höheren Komprimierungsgraden ist aber ein Unterschied wieder deutlich erkennbar.
 
 ## 4. Diskussion
 
-Zwar hat sich die Hypothese weitesgehend bestätigt, jedoch m
+Wir sehen, dass die Skalen die Stimuli durchaus widerspiegeln und dies unsere Hypothesen stützt. Bis auf kleine Details und eine erhöhte Helligkeit, von der andere Versuchspersonen wahrscheinlich nichts wissen werden, da sie das Verfahren nicht kennen, unterscheidet sich die Qualität der Bilder, die um einen kleinen Faktor hochskaliert und ggf. komprimiert wurden, kaum von der des Originals. Dagegen weisen stark vergrößerte und zuvor stark komprimierte Bilder sehr viel Noise auf und dementsprechend niedrig ist die wahrgenommene Bildqualität dieser.
+
+### Mögliche Probleme
+
+Zwar hat sich die Hypothese weitesgehend bestätigt, jedoch sind hier noch einige Anmerkungen:
+<ul>
+    <li>Außer uns selbst gab es keine weiteren Probanden. Zunächst ist es fraglich, ob vier Probanden eine Aussage über die Allgemeinheit treffen können. Außerdem sind die Probanden voreingenommen, da ihnen die Bilder und die Hypothese im Vorhinein bekannt waren.</li>
+    <li>
+        Es wurden lediglich drei Bilder und wenige Vergrößerungs- und Komprimierungsstufen verwendet. Für eine allgemeine Aussage sind definitiv mehr und umfangreichere Experimente notwendig. Leider ist das Verfahren (MLDS) sehr aufwendig und skaliert schlecht mit der Anzahl an Variationen.
+    </li>
+    <li>
+        In diesem Experiment wurden die Verfahren bis an ihre Grenzen getestet. Es ist durchaus unrealistisch, dass man Bilder um den Faktor 16 vergrößern möchte oder 95%-ige JPEG Komprimierung wiederherstellen möchte. Dazu ist das Verfahren auch nicht gedacht.
+    </li>
+    <li>
+        Die Trainingsdaten des neuronalen Netzwerks sind nicht bekannt, aber von hoher Relevanz. Wie typisch im Machine Learning hängt das Ergebnis stark von den Trainingsdaten ab.
+    </li>
+</ul>
+
+
+### Offene Fragen
+
+Abschließend kann man sagen, dass Super-Resolution mit der Idealo ISR Library für unsere Bilder und für kleine Vergrößerungen und Komprimierungen gut funktioniert. Leider können wir nicht genau sagen, inwiefern das Verfahren besser ist als die bikubische Interpolation. Ein direkter Vergleich der Bildqualität zwischen der Super-Resolution und der bikubischen Interpolation ist durchaus interessant. Zudem wäre es sicherlich interessant herauszufinden, wie empfindlich das Verfahren auf die zum Training des neuronalen Netztes verwendete Daten ist. Die Trainingsdaten sind dementsprechend auch entscheidend dafür, ob die kommerziellen Anbieter ihr Versprechen, die Bilder ohne Qualitätsverlust zu vergrößern, einhalten können.
 
 ## 5. Anhang
 
@@ -314,4 +338,6 @@ Zwar hat sich die Hypothese weitesgehend bestätigt, jedoch m
 
 ### Referenzen
 
-C. Charrier, L. Maloney, H. Cherifi, and K. Knoblauch, "Maximum likelihood difference scaling of image quality in compression-degraded images," J. Opt. Soc. Am. A  24, 3418-3426 (2007).
+Charrier, C., Maloney, L. T., Cherifi, H., & Knoblauch, K. (2007). Maximum likelihood difference scaling of image quality in compression-degraded images. _JOSA A, 24_(11), 3418-3426.
+
+Ledig, C., Theis, L., Huszár, F., Caballero, J., Cunningham, A., Acosta, A., ... & Shi, W. (2017). Photo-realistic single image super-resolution using a generative adversarial network. In _Proceedings of the IEEE conference on computer vision and pattern recognition_ (pp. 4681-4690).
