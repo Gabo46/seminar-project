@@ -190,7 +190,7 @@ Die rote/grüne/blaue Funktion stellt hierbei die jeweilige R/G/B-Intensität da
 
 <img src="images/face/horizontal_cut_scaling.png" width="85%" />
 
-Je höher der Vergrößerungsfaktor, umso mehr unterscheiden sich die Intensitäten der Pixel vom Originalbild. Außerdem ist auffällig, dass bei höherer Komprimierung die Funktion abgerundeter aussieht, d.h. starke SChwingungen in der Intensität kaum vorhanden sind.
+Je höher der Vergrößerungsfaktor, umso mehr unterscheiden sich die Intensitäten der Pixel vom Originalbild. Außerdem ist auffällig, dass bei höherer Komprimierung die Funktion abgerundeter aussieht, d.h. starke Schwingungen in der Intensität kaum vorhanden sind.
 
 ### Horizontal Cuts für verschiedene Komprimierungsstufen (Gesicht)
 
